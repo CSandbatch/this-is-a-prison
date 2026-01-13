@@ -52,6 +52,10 @@ Treat all stored text as sensitive.
 - `DYNAMODB_CONTEXT_TABLE`
 - `DYNAMODB_LOG_TABLE`
 
+Recommended model:
+
+- `OPENAI_MODEL=gpt-5.2`
+
 ### Local secrets file (optional helper)
 
 `secrets.json` is ignored by git (`.gitignore`) and can be used to set env vars locally.

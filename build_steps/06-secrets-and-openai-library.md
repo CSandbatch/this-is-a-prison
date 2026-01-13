@@ -2,3 +2,4 @@
 2. Added `scripts/load-secrets.ps1` to map `secrets.json` into required env vars.
 3. Created `openai_inference/` package and updated Lambda code to use it.
 
+

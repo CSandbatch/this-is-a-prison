@@ -4,6 +4,7 @@
 
 - Handler: `app/handler.py` (`lambda_handler`)
 - Handler string: `app.handler.lambda_handler`
+- OpenAI API: Responses API (via `openai_inference/responses.py`)
 
 ## 2) DynamoDB table schemas
 

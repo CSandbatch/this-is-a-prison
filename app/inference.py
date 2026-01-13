@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from openai_inference import chat_completion_text
+from openai_inference import responses_text
 
 from .storage import ContextEntry
 
@@ -19,7 +19,7 @@ def run_inference(
     system_prompt: str,
     context: list[ContextEntry],
     temperature: float = 0.5,
-    max_tokens: int = 512,
+    max_output_tokens: int = 512,
     timeout_s: float = 15.0,
 ) -> InferenceResult:
     messages = [{"role": "system", "content": system_prompt}]
@@ -30,12 +30,14 @@ def run_inference(
             continue
         messages.append({"role": entry.role, "content": entry.content})
 
-    text = chat_completion_text(
+    text = responses_text(
         api_key=openai_api_key,
         model=model,
         messages=messages,
+        reasoning_effort="none",
+        verbosity="medium",
         temperature=min(max(temperature, 0.0), 0.5),
-        max_tokens=max_tokens,
+        max_output_tokens=max_output_tokens,
         timeout_s=timeout_s,
     )
     if not text:

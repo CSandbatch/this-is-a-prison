@@ -122,7 +122,7 @@ def lambda_handler(event: dict[str, Any], context: Any) -> dict[str, Any]:
                 system_prompt=cfg.system_prompt,
                 context=ctx,
                 temperature=0.5,
-                max_tokens=512,
+                max_output_tokens=512,
                 timeout_s=15.0,
             )
             reply_text = inf.reply_text
